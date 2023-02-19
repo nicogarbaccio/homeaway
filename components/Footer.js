@@ -15,15 +15,15 @@ function Footer() {
             <h5 className='font-bold'>COMMUNITY</h5>
             <p>This is not a real site</p>
             <p>It's a clone of Airbnb</p>
-            <p>Pretty cool though!</p>
+            <p>Using React & NextJS</p>
             <p>Hope you like it</p>
             <p>It's been fun to build!</p>
         </div>
         <div className='space-y-4 text-xs text-gray-800'>
             <h5 className='font-bold'>SUPPORT</h5>
-            <p>Helpbnh  Center</p>
+            <p>Help Center</p>
             <p>Trust & Safety</p>
-            <p>Easter Eggs are fun to hide</p>
+            <p>Easter eggs!</p>
             <p>Airbnb Plus</p>
             <p>Airbnb Luxe</p>
         </div>
