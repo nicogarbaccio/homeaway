@@ -11,19 +11,14 @@ function Search( {searchResults} ) {
     const formattedStartDate = format(new Date(startDate), "dd MMMM yy")
     const formattedEndDate = format(new Date(endDate), "dd MMMM yy")
     const range = `${formattedStartDate} - ${formattedEndDate}`
-    const [searchInput, setSearchInput] = useState("");
 
-    const filteredResults = searchResults.filter(result => {
-        return result.location.toLowerCase().includes(searchInput.toLowerCase())
-    })
-
-    const handleSearchInput = (e) => {
-        setSearchInput(e.target.value)
-    }
+    // const filteredResults = searchResults.filter(result => {
+    //     return result.location.toLowerCase().includes(searchInput.toLowerCase())
+    // })
 
   return (
     <div className='h-screen'>
-        <Header searchInput={searchInput} setSearchInput={handleSearchInput} placeholder={`${location} | ${range} | ${noOfGuests}`} />
+        <Header placeholder={`${location} | ${range} | ${noOfGuests}`} />
         <main class='flex'>
             <section className='flex-grow pt-14 px-6'>
                 <p className='text-xs'>300+ stays - {range} - for {noOfGuests} guests</p>
@@ -36,7 +31,7 @@ function Search( {searchResults} ) {
                     <p className='button'>More filters</p>
                 </div>
                 <div>
-                    {filteredResults.map(({ img, location, title, description, star, price, total}) => (
+                    {searchResults.map(({ img, location, title, description, star, price, total}) => (
                         <InfoCard
                             key={img}
                             img={img}
