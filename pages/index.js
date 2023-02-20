@@ -48,7 +48,7 @@ function Home ({ exploreData, cardsData }) {
         <LargeCard
           img="https://links.papareact.com/4cj"
           title="The Great Outdoors"
-          description="Wishlists curated by Airbnb"
+          description="Wishlists curated by Stay Awhile"
           buttonText="Get Inspired"
         />
       </main>
@@ -62,7 +62,7 @@ export default Home
 
 export async function getStaticProps() {
   // json placeholder -- replace with different data
-  const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G')
+  const exploreData = await fetch('https://www.jsonkeeper.com/b/MZVU')
   .then (
     (res) => res.json()
   );

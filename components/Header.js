@@ -50,13 +50,16 @@ function Header( {placeholder} ) {
   return (
     <header className='sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10'>
         {/* Logo */}
-        <div onClick={() => router.push("/")} className='relative flex items-center h-10 cursor-pointer'>
+        <div onClick={() => router.push("/")} className='flex items-center h-11 cursor-pointer'>
             <Image
                 // Some of this is deprecated but it does still work, so ignore for now
-                src="https://links.papareact.com/qd3"
-                layout="fill"
+                src="https://i.imgur.com/9iubCWo.png"
+                // layout="fill"
+                width={150}
+                height={150}
                 objectFit="contain"
-                objectPosition="left"
+                // objectPosition="left"
+                className='pt-6'
             />
         </div>
         {/* Search */}
@@ -67,7 +70,7 @@ function Header( {placeholder} ) {
             className='flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400' 
             type="text"
             placeholder={placeholder || "Start your search"} />
-            <SearchIcon className='hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2' />
+            <SearchIcon className='hidden md:inline-flex h-8 bg-green-900 text-white rounded-full p-2 cursor-pointer md:mx-2' />
         </div>
         {/* Right */}
         <div className='flex items-center space-x-4 justify-end text-gray-500'>
