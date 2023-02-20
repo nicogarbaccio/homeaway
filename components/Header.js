@@ -12,8 +12,8 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { DateRangePicker } from 'react-date-range';
 
-function Header( {placeholder} ) {
-    const [searchInput, setSearchInput] = useState("");
+function Header( {placeholder, searchInput, setSearchInput} ) {
+    // const [searchInput, setSearchInput] = useState("");
     const [startDate, setStartDate] = useState(new Date())
     const [endDate, setEndDate] = useState(new Date())
     const [noOfGuests, setNoOfGuests] = useState(1)
@@ -62,7 +62,8 @@ function Header( {placeholder} ) {
         <div className='flex items-center md:border-2 rounded-full py-2 md:shadow-sm'>
             <input
             value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
+            // onChange={(e) => setSearchInput(e.target.value)}
+            onChange={setSearchInput}
             className='flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400' 
             type="text"
             placeholder={placeholder || "Start your search"} />
@@ -88,8 +89,8 @@ function Header( {placeholder} ) {
             <div className='flex items-center border-b mb-4'>
                 <h2 className='text-2xl flex-grow font-semibold'>Number of Guests</h2>
                 <UsersIcon className='h-5' />
-                <input 
-                    type="number" 
+                <input
+                    type="number"
                     value={noOfGuests}
                     min={1}
                     max={20}
