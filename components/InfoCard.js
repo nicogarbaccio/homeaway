@@ -28,10 +28,6 @@ function InfoCard( {img, location, title, description, star, price, total } ) {
                     <StarIcon className='h-5 text-red-400' />
                     {star}
                 </p> 
-                <div className='flex'>
-                    <p className='text-lg lg:text-2xl font-semibold pb-2'>{price}</p>
-                    <p className='text-right font-extralight'>{total}</p>
-                </div>
             </div>
         </div>
     </div>

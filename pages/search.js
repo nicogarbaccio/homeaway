@@ -32,7 +32,7 @@ function Search( {searchResults} ) {
                     <p className='button'>More filters</p>
                 </div>
                 <div>
-                    {filteredResults.map(({ img, location, title, description, star, price, total}) => (
+                    {filteredResults.map(({ img, location, title, description, star, price}) => (
                         <InfoCard
                             key={img}
                             img={img}
@@ -41,7 +41,6 @@ function Search( {searchResults} ) {
                             description={description}
                             star={star}
                             price={price}
-                            total={total}
                         />
                     ))}
                 </div>
@@ -59,7 +58,7 @@ export default Search;
 
 export async function getServerSideProps({ query} ) {
     const { location } = query;
-    const searchResults = await fetch("https://www.jsonkeeper.com/b/5NPS")
+    const searchResults = await fetch("https://www.jsonkeeper.com/b/URFK")
     .then(res => res.json());
     
     return {
