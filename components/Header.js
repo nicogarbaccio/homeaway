@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 import {
     SearchIcon,
     GlobeAltIcon,
@@ -16,6 +17,7 @@ function Header() {
     const [startDate, setStartDate] = useState(new Date())
     const [endDate, setEndDate] = useState(new Date())
     const [noOfGuests, setNoOfGuests] = useState(1)
+    const router = useRouter();
     
     const handleSelect = (ranges) => {
         setStartDate(ranges.selection.startDate)
@@ -35,7 +37,7 @@ function Header() {
   return (
     <header className='sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10'>
         {/* Logo */}
-        <div className='relative flex items-center h-10 cursor-pointer'>
+        <div onClick={() => router.push("/")} className='relative flex items-center h-10 cursor-pointer'>
             <Image
                 // Some of this is deprecated but it does still work, so ignore for now
                 src="https://links.papareact.com/qd3"
