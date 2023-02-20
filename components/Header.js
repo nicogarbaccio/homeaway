@@ -25,7 +25,7 @@ function Header( {placeholder} ) {
     }
 
     const resetInput = () => {
-        handleSearchInput("")
+        setSearchInput("")
     }
 
     const search = () => {
@@ -38,6 +38,7 @@ function Header( {placeholder} ) {
                 noOfGuests,
             }
         })
+        resetInput()
     }
 
     const selectionRange = {
@@ -98,7 +99,7 @@ function Header( {placeholder} ) {
                 />
             </div>
             <div className='flex'>
-                <button onClick={resetInput} className='flex-grow text-gray-500'>Cancel</button>
+                <button onClick={resetInput} className='flex-grow text-gray-500'>Clear</button>
                 <button onClick={search} className='flex-grow text-red-400'>Search</button>
             </div>
             </div>

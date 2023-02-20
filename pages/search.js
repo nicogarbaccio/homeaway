@@ -12,9 +12,9 @@ function Search( {searchResults} ) {
     const formattedEndDate = format(new Date(endDate), "dd MMMM yy")
     const range = `${formattedStartDate} - ${formattedEndDate}`
 
-    // const filteredResults = searchResults.filter(result => {
-    //     return result.location.toLowerCase().includes(searchInput.toLowerCase())
-    // })
+    const filteredResults = searchResults.filter(
+        (result) => result.location.toLowerCase() === location.toLowerCase()
+    );
 
   return (
     <div className='h-screen'>
@@ -31,7 +31,7 @@ function Search( {searchResults} ) {
                     <p className='button'>More filters</p>
                 </div>
                 <div>
-                    {searchResults.map(({ img, location, title, description, star, price, total}) => (
+                    {filteredResults.map(({ img, location, title, description, star, price, total}) => (
                         <InfoCard
                             key={img}
                             img={img}
@@ -53,13 +53,15 @@ function Search( {searchResults} ) {
 
 export default Search;
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ query} ) {
+    const { location } = query;
     const searchResults = await fetch("https://www.jsonkeeper.com/b/5NPS")
     .then(res => res.json());
     
     return {
         props: {
-            searchResults
+            searchResults,
+            location
         }
     }
 }
