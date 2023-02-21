@@ -37,25 +37,23 @@ function ViewMap({ searchResults }) {
         mapStyle="mapbox://styles/nicogarbaccio/cled14w2n002x01o3dmlvav7t"
         >
         {/* Loop through search results and create a marker for each item in the array
-        The marker is positioned using the item's longitude and latitude, and when the marker is clicked
-        The popupInfo state is set to the item.
-        The click event is stopped from propagating to the map to prevent the popup from closing. */}
-        {searchResults?.map((item) => (
+        The marker is positioned using the item's longitude and latitude, and when the marker is clicked,
+        the popupInfo state is set to the item */}
+        {searchResults?.map((listing) => (
             <Marker
-            key={item.long}
-            longitude={item.long}
-            latitude={item.lat}
+            key={listing.long}
+            longitude={listing.long}
+            latitude={listing.lat}
             anchor="bottom"
             onClick={(e) => {
-                // If the user lets the click event propagates to the map, it will immediately close the popup
-                // with `closeOnClick: true`
+                // stopPropagation stops the click event from immediately closing, so the user is able to
                 e.originalEvent.stopPropagation();
-                setPopupInfo(item);
+                setPopupInfo(listing);
             }}
             >
             <div className="bg-white px-2 py-1 rounded-2xl shadow-lg cursor-pointer active:bg-black ">
                 <p className="text-gray-900 font-semibold text-lg active:text-white">
-                {item.price.replace("/ night", "")}📌
+                {listing.price.replace("/ night", "")}📌
                 </p>
             </div>
             </Marker>
